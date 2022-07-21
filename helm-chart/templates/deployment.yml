@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: label-selector
+  namespace: {{ .Release.Namespace }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: label-selector
+  template:
+    metadata:
+      labels:
+        app: label-selector
+    spec:
+      serviceAccountName: sa-label-selector
+      containers:
+      - name: containerinfo
+        imagePullPolicy: {{ .Values.containerinfo.imagePullPolicy }}
+        image: {{ .Values.image }}:{{ .Values.tag }}
+        tty: true
+        ports:
+        - name: app
+          containerPort: 5000

@@ -1,0 +1,13 @@
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: crb-label-selector
+subjects:
+- kind: ServiceAccount
+  name: sa-label-selector
+  namespace: {{ .Release.Namespace }}
+roleRef:
+  kind: ClusterRole
+  name: cr-pods-reader
+  apiGroup: rbac.authorization.k8s.io
+  

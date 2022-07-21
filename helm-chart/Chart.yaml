@@ -1,0 +1,8 @@
+apiVersion: v2
+name: containerinfo
+description: Filter out pods based on label selector and retrieve resource requests and limits
+type: application
+icon: ""
+
+version: 0.1.0
+appVersion: 0.1.0
