@@ -15,7 +15,7 @@ The installation is done using an Helm Chart.
 
 ### Installation
 
-To install the chart, download the `containerinfo-0.1.0.tgz` chart from the releases [PLACEHOLDER](LINK)
+To install the chart, download the `containerinfo-0.1.0.tgz` chart from the [releases page](https://github.com/franzqat/containerinfo/releases/tag/0.1.0)
 
 After, to install the chart you need to run the following command:
 
@@ -63,6 +63,8 @@ To access the pod, with an account with enough permissions, you need to connect 
 `kubectl exec -it <POD_NAME> -n <NAMESPACE> -- /bin/bash`
 
 ## Build
+You can use my image or compile your own. Mine is already configured.
+
 I used **podman** to build the image. 
 To build the image, you need to run the following command:
 ```
@@ -72,6 +74,7 @@ podman push <YOURACCOUNT_NAME>/containerinfo:latest
 ```
 If you prefer to use docker, just change `podman` into `docker`.
 
+After this, change the image url in the [values.yml](https://github.com/franzqat/containerinfo/blob/main/helm-chart/values.yaml) file 
 ## Roadmap
 It's possible to improve this application.
 One of the first goals could be to remove the files generation inside /tmp/ folder and the input directly to the jq scripts.
